@@ -1,0 +1,3 @@
+﻿<Project>
+  <Import Project="..\build\Trab-AV2.props" />
+</Project>
