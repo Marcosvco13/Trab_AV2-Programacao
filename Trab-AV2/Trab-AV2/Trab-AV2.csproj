@@ -23,4 +23,8 @@
     <PackageReference Include="Microsoft.VisualStudio.Web.CodeGeneration.Design" Version="7.0.11" />
   </ItemGroup>
 
+  <ItemGroup>
+    <ProjectReference Include="..\Trab-AV2.Model\Trab-AV2.Model.csproj" />
+  </ItemGroup>
+
 </Project>

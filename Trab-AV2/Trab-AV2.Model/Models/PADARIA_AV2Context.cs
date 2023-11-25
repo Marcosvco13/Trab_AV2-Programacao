@@ -12,6 +12,13 @@ public partial class PADARIA_AV2Context : DbContext
         : base(options)
     {
     }
+    public PADARIA_AV2Context()
+    {
+    }
+
+    protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
+
+=> optionsBuilder.UseSqlServer("data source=NOTEBOOK-MARCOS\\SQLEXPRESS;Initial Catalog=PADARIA_AV2;User Id=sa;Password=2000@edu.sau;TrustserverCertificate=True");
 
     public virtual DbSet<Produto> Produtos { get; set; }
 
