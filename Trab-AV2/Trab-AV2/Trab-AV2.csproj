@@ -20,4 +20,8 @@
     </PackageReference>
   </ItemGroup>
 
+  <ItemGroup>
+    <ProjectReference Include="..\Trab-AV2.Model\Trab-AV2.Model.csproj" />
+  </ItemGroup>
+
 </Project>
