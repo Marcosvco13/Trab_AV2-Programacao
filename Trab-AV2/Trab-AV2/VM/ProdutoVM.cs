@@ -1,15 +1,21 @@
-﻿using Trab_AV2.Data;
+﻿using System.ComponentModel.DataAnnotations;
+using Trab_AV2.Data;
 using Trab_AV2.Model.Models;
 
 namespace Trab_AV2.VM
 {
     public class ProdutoVM
     {
+        [Display(Name = "Cód. Produto")]
         public int IDProduto { get; set; }
+        [Display(Name = "Usuário Cadastrante")]
         public string? Usuario {  get; set; }
+        [Display(Name = "Produto")]
         public string? NomeProduto { get; set; }
         public string? Quantidade { get; set; }
+        [Display(Name = "Valor do Produto")]
         public decimal? ValorProduto { get; set; }
+        [Display(Name = "Disponível")]
         public string? Disponivel { get; set; }
 
         public static List<ProdutoVM> ListarProdutos()

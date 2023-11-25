@@ -2,20 +2,21 @@
 #nullable disable
 using System;
 using System.Collections.Generic;
+using System.ComponentModel.DataAnnotations;
 
 namespace Trab_AV2.Model.Models;
 
 public partial class Produto
 {
+    [Display(Name = "Cód. Produto")]
     public int Id { get; set; }
-
     public string IdUser { get; set; }
-
+    [Display(Name = "Produto")]
     public string NmProduto { get; set; }
-
+    [Display(Name = "Quantidade")]
     public string Qtd { get; set; }
-
+    [Display(Name = "Valor do Produto")]
     public decimal Valor { get; set; }
-
+    [Display(Name = "Disponível")]
     public int Disp { get; set; }
 }
