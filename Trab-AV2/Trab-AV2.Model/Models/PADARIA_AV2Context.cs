@@ -13,14 +13,6 @@ public partial class PADARIA_AV2Context : DbContext
     {
     }
 
-    public PADARIA_AV2Context()
-    {
-    }
-
-    protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
-
-=> optionsBuilder.UseSqlServer("data source=NOTEBOOK-MARCOS\\SQLEXPRESS;Initial Catalog=PADARIA_AV2;User Id=sa;Password=2000@edu.sau;TrustserverCertificate=True");
-
     public virtual DbSet<Produto> Produtos { get; set; }
 
     public virtual DbSet<SimNao> SimNaos { get; set; }
@@ -56,7 +48,7 @@ public partial class PADARIA_AV2Context : DbContext
 
         modelBuilder.Entity<SimNao>(entity =>
         {
-            entity.HasKey(e => e.Id).HasName("PK__SIM_NAO__3214EC27CDB02CDB");
+            entity.HasKey(e => e.Id).HasName("PK__SIM_NAO__3214EC278C446DF7");
 
             entity.ToTable("SIM_NAO");
 
