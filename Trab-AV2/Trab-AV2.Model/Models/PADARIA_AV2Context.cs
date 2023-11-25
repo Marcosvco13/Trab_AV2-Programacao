@@ -27,6 +27,7 @@ public partial class PADARIA_AV2Context : DbContext
     public virtual DbSet<SimNao> SimNaos { get; set; }
 
     public virtual DbSet<Venda> Venda { get; set; }
+    public virtual DbSet<VwEstoque> VwEstoque {get; set; }
 
     protected override void OnModelCreating(ModelBuilder modelBuilder)
     {
@@ -99,6 +100,25 @@ public partial class PADARIA_AV2Context : DbContext
             entity.Property(e => e.ValorVenda)
                 .HasColumnType("decimal(18, 0)")
                 .HasColumnName("VALOR_VENDA");
+        });
+
+        modelBuilder.Entity<VwEstoque>(entity =>
+        {
+            entity
+                .HasNoKey()
+                .ToView("VW_ESTOQUE");
+
+            entity.Property(e => e.ProDescricao)
+                .IsRequired()
+                .HasMaxLength(200)
+                .IsUnicode(false);
+            entity.Property(e => e.Procodigo).HasColumnName("PROCODIGO");
+            entity.Property(e => e.Quantidade)
+                .HasColumnType("decimal(38, 0)")
+                .HasColumnName("QUANTIDADE");
+            entity.Property(e => e.Valorvenda)
+                .HasColumnType("decimal(18, 2)")
+                .HasColumnName("VALORVENDA");
         });
 
         OnModelCreatingPartial(modelBuilder);
