@@ -12,6 +12,7 @@ public partial class PADARIA_AV2Context : DbContext
         : base(options)
     {
     }
+
     public PADARIA_AV2Context()
     {
     }
@@ -21,6 +22,8 @@ public partial class PADARIA_AV2Context : DbContext
 => optionsBuilder.UseSqlServer("data source=NOTEBOOK-MARCOS\\SQLEXPRESS;Initial Catalog=PADARIA_AV2;User Id=sa;Password=2000@edu.sau;TrustserverCertificate=True");
 
     public virtual DbSet<Produto> Produtos { get; set; }
+
+    public virtual DbSet<SimNao> SimNaos { get; set; }
 
     public virtual DbSet<Vendum> Venda { get; set; }
 
@@ -49,6 +52,20 @@ public partial class PADARIA_AV2Context : DbContext
             entity.Property(e => e.Valor)
                 .HasColumnType("decimal(18, 0)")
                 .HasColumnName("VALOR");
+        });
+
+        modelBuilder.Entity<SimNao>(entity =>
+        {
+            entity.HasKey(e => e.Id).HasName("PK__SIM_NAO__3214EC27CDB02CDB");
+
+            entity.ToTable("SIM_NAO");
+
+            entity.Property(e => e.Id).HasColumnName("ID");
+            entity.Property(e => e.Descricao)
+                .IsRequired()
+                .HasMaxLength(3)
+                .IsUnicode(false)
+                .HasColumnName("DESCRICAO");
         });
 
         modelBuilder.Entity<Vendum>(entity =>

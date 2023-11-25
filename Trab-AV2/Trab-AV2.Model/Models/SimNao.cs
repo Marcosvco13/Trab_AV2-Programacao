@@ -5,15 +5,9 @@ using System.Collections.Generic;
 
 namespace Trab_AV2.Model.Models;
 
-public partial class Vendum
+public partial class SimNao
 {
     public int Id { get; set; }
 
-    public int IdProduto { get; set; }
-
-    public string IdUser { get; set; }
-
-    public DateTime? DataVenda { get; set; }
-
-    public decimal? ValorVenda { get; set; }
+    public string Descricao { get; set; }
 }
