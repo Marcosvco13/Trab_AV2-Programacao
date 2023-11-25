@@ -8,6 +8,4 @@ build_property.PlatformNeutralAssembly =
 build_property.EnforceExtendedAnalyzerRules = 
 build_property._SupportedPlatformList = Linux,macOS,Windows
 build_property.RootNamespace = Trab_AV2.Model
-build_property.ProjectDir = D:\Faculdade\C#\Trab_AV2-Programacao\Trab-AV2\Trab-AV2.Model\
-build_property.EnableComHosting = 
-build_property.EnableGeneratedComInterfaceComImportInterop = 
+build_property.ProjectDir = C:\Users\danie\Documents\Faculdade\Projento Integrador\Projeto_Integrador_2\sistema-padaria\Trab-AV2\Trab-AV2.Model\
