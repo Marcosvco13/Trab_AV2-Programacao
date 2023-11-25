@@ -18,7 +18,7 @@ public partial class PADARIA_AV2Context : DbContext
 
     protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
 
-=> optionsBuilder.UseSqlServer("data source=NOTEBOOK-MARCOS\\SQLEXPRESS;Initial Catalog=PADARIA_AV2;User Id=sa;Password=2000@edu.sau;TrustserverCertificate=True");
+=> optionsBuilder.UseSqlServer("data source=.\\SQLEXPRESS;Initial Catalog=PADARIA_AV2;User Id=sa;Password=22102001da;TrustserverCertificate=True");
 
     public virtual DbSet<AspNetUser> AspNetUsers { get; set; }
 

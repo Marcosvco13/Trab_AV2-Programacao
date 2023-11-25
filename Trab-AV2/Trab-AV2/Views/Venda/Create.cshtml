@@ -1,0 +1,61 @@
+﻿﻿@using Microsoft.AspNetCore.Identity
+@using Trab_AV2.Areas.Identity.Data
+
+@model Trab_AV2.Model.Models.Venda
+
+@inject UserManager<Trab_AV2User> UserManager
+
+@{
+    ViewData["Title"] = "Create";
+}
+
+<h1>Create</h1>
+
+<h4>VendaVM</h4>
+<hr />
+<div class="row">
+    <div class="col-md-4">
+        <form asp-action="Create">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+
+
+            <div class="form-group">
+                <label asp-for="IdProduto" class="control-label"></label>
+                <select class="form-select" id="cboProduto" asp-for="IdProduto" asp-items="@ViewBag.Produto">
+                    <option selected value="">Selecione um Produto</option>
+                </select>
+                <span asp-validation-for="IdProduto" class="text-danger"></span>
+            </div>
+
+
+            <div class="form-group">
+                <label asp-for="IdUser" class="control-label"></label>
+                <input asp-for="IdUser" class="form-control mb-2" value="@UserManager.GetUserId(User)" />
+                <span asp-validation-for="IdUser" class="text-danger"></span>
+            </div>
+
+
+            <div class="form-group">
+                <label asp-for="DataVenda" class="control-label"></label>
+                <input asp-for="DataVenda" class="form-control" />
+                <span asp-validation-for="DataVenda" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="ValorVenda" class="control-label"></label>
+                <input asp-for="ValorVenda" class="form-control" />
+                <span asp-validation-for="ValorVenda" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <input type="submit" value="Create" class="btn btn-primary" />
+            </div>
+        </form>
+    </div>
+</div>
+
+<div>
+    <a asp-action="Index">Back to List</a>
+</div>
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}
