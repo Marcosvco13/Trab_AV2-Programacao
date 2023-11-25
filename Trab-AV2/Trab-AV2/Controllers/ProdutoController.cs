@@ -69,17 +69,10 @@ namespace Trab_AV2.Controllers
             return View();
         }
 
-        public IActionResult Delete(int id)
+        [HttpGet]
+        public async Task<IActionResult> Delete(int id)
         {
-            var produto = ProdutoVM.SelecionaProduto(id);
-            return View(produto);
-        }
-
-        [HttpPost]
-        public async Task<IActionResult> Delete(ProdutoVM produtoVM)
-        {
-            var produto = await _ServiceProduto.oRepositoryProduto.SelecionarPkAsync(produtoVM.IDProduto);
-            await _ServiceProduto.oRepositoryProduto.ExcluirAsync(produto);
+            await _ServiceProduto.oRepositoryProduto.ExcluirAsync(id);
             return RedirectToAction("Index");
         }
     }

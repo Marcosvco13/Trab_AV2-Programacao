@@ -1,4 +1,4 @@
-﻿@model Trab_AV2.VM.ProdutoVM
+﻿@model Trab_AV2.Model.Models.Produto
 
 @{
     ViewData["Title"] = "Delete";
@@ -8,44 +8,44 @@
 
 <h3>Are you sure you want to delete this?</h3>
 <div>
-    <h4>ProdutoVM</h4>
+    <h4>Produto</h4>
     <hr />
     <dl class="row">
         <dt class = "col-sm-2">
-            @Html.DisplayNameFor(model => model.IDProduto)
+            @Html.DisplayNameFor(model => model.Id)
         </dt>
         <dd class = "col-sm-10">
-            @Html.DisplayFor(model => model.IDProduto)
+            @Html.DisplayFor(model => model.Id)
         </dd>
         <dt class = "col-sm-2">
-            @Html.DisplayNameFor(model => model.Usuario)
+            @Html.DisplayNameFor(model => model.IdUser)
         </dt>
         <dd class = "col-sm-10">
-            @Html.DisplayFor(model => model.Usuario)
+            @Html.DisplayFor(model => model.IdUser)
         </dd>
         <dt class = "col-sm-2">
-            @Html.DisplayNameFor(model => model.NomeProduto)
+            @Html.DisplayNameFor(model => model.NmProduto)
         </dt>
         <dd class = "col-sm-10">
-            @Html.DisplayFor(model => model.NomeProduto)
+            @Html.DisplayFor(model => model.NmProduto)
         </dd>
         <dt class = "col-sm-2">
-            @Html.DisplayNameFor(model => model.Quantidade)
+            @Html.DisplayNameFor(model => model.Qtd)
         </dt>
         <dd class = "col-sm-10">
-            @Html.DisplayFor(model => model.Quantidade)
+            @Html.DisplayFor(model => model.Qtd)
         </dd>
         <dt class = "col-sm-2">
-            @Html.DisplayNameFor(model => model.ValorProduto)
+            @Html.DisplayNameFor(model => model.Valor)
         </dt>
         <dd class = "col-sm-10">
-            @Html.DisplayFor(model => model.ValorProduto)
+            @Html.DisplayFor(model => model.Valor)
         </dd>
         <dt class = "col-sm-2">
-            @Html.DisplayNameFor(model => model.Disponivel)
+            @Html.DisplayNameFor(model => model.Disp)
         </dt>
         <dd class = "col-sm-10">
-            @Html.DisplayFor(model => model.Disponivel)
+            @Html.DisplayFor(model => model.Disp)
         </dd>
     </dl>
     
