@@ -7,6 +7,10 @@ namespace Trab_AV2.Data;
 
 public class Trab_AV2Context : IdentityDbContext<Trab_AV2User>
 {
+    public Trab_AV2Context()
+    {
+    }
+
     public Trab_AV2Context(DbContextOptions<Trab_AV2Context> options)
         : base(options)
     {

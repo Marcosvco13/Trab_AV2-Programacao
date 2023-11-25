@@ -16,7 +16,7 @@
                 @Html.DisplayNameFor(model => model.IDProduto)
             </th>
             <th>
-                @Html.DisplayNameFor(model => model.IDUsuario)
+                @Html.DisplayNameFor(model => model.Usuario)
             </th>
             <th>
                 @Html.DisplayNameFor(model => model.NomeProduto)
@@ -40,7 +40,7 @@
                 @Html.DisplayFor(modelItem => item.IDProduto)
             </td>
             <td>
-                @Html.DisplayFor(modelItem => item.IDUsuario)
+                @Html.DisplayFor(modelItem => item.Usuario)
             </td>
             <td>
                 @Html.DisplayFor(modelItem => item.NomeProduto)
@@ -55,9 +55,9 @@
                 @Html.DisplayFor(modelItem => item.Disponivel)
             </td>
             <td>
-                @Html.ActionLink("Edit", "Edit", new { /* id=item.PrimaryKey */ }) |
-                @Html.ActionLink("Details", "Details", new { /* id=item.PrimaryKey */ }) |
-                @Html.ActionLink("Delete", "Delete", new { /* id=item.PrimaryKey */ })
+                @Html.ActionLink("Edit", "Edit", new { id = item.IDProduto }) |
+                    @Html.ActionLink("Detail", "Detail", new { id = item.IDProduto }) |
+                @Html.ActionLink("Delete", "Delete", new { id = item.IDProduto })
             </td>
         </tr>
 }

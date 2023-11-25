@@ -16,6 +16,10 @@
    "T4TemplatePath": null,
    "Tables": [
       {
+         "Name": "[dbo].[AspNetUsers]",
+         "ObjectType": 0
+      },
+      {
          "Name": "[dbo].[PRODUTOS]",
          "ObjectType": 0
       },
@@ -28,7 +32,7 @@
          "ObjectType": 0
       }
    ],
-   "UiHint": "desktop-jqadb68\\sqlexpress.PADARIA_AV2.dbo",
+   "UiHint": "notebook-marcos\\sqlexpress.PADARIA_AV2.dbo",
    "UncountableWords": null,
    "UseBoolPropertiesWithoutDefaultSql": false,
    "UseDatabaseNames": false,

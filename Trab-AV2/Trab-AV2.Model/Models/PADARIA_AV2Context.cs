@@ -20,6 +20,8 @@ public partial class PADARIA_AV2Context : DbContext
 
 => optionsBuilder.UseSqlServer("data source=NOTEBOOK-MARCOS\\SQLEXPRESS;Initial Catalog=PADARIA_AV2;User Id=sa;Password=2000@edu.sau;TrustserverCertificate=True");
 
+    public virtual DbSet<AspNetUser> AspNetUsers { get; set; }
+
     public virtual DbSet<Produto> Produtos { get; set; }
 
     public virtual DbSet<SimNao> SimNaos { get; set; }
@@ -28,6 +30,20 @@ public partial class PADARIA_AV2Context : DbContext
 
     protected override void OnModelCreating(ModelBuilder modelBuilder)
     {
+        modelBuilder.Entity<AspNetUser>(entity =>
+        {
+            entity.HasIndex(e => e.NormalizedEmail, "EmailIndex");
+
+            entity.HasIndex(e => e.NormalizedUserName, "UserNameIndex")
+                .IsUnique()
+                .HasFilter("([NormalizedUserName] IS NOT NULL)");
+
+            entity.Property(e => e.Email).HasMaxLength(256);
+            entity.Property(e => e.NormalizedEmail).HasMaxLength(256);
+            entity.Property(e => e.NormalizedUserName).HasMaxLength(256);
+            entity.Property(e => e.UserName).HasMaxLength(256);
+        });
+
         modelBuilder.Entity<Produto>(entity =>
         {
             entity.ToTable("PRODUTOS");
@@ -55,7 +71,7 @@ public partial class PADARIA_AV2Context : DbContext
 
         modelBuilder.Entity<SimNao>(entity =>
         {
-            entity.HasKey(e => e.Id).HasName("PK__SIM_NAO__3214EC278C446DF7");
+            entity.HasKey(e => e.Id).HasName("PK__SIM_NAO__3214EC27D10DE8D7");
 
             entity.ToTable("SIM_NAO");
 
