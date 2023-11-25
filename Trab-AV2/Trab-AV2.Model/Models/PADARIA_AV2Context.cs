@@ -25,7 +25,7 @@ public partial class PADARIA_AV2Context : DbContext
 
     public virtual DbSet<SimNao> SimNaos { get; set; }
 
-    public virtual DbSet<Vendum> Venda { get; set; }
+    public virtual DbSet<Venda> Venda { get; set; }
 
     protected override void OnModelCreating(ModelBuilder modelBuilder)
     {
@@ -68,7 +68,7 @@ public partial class PADARIA_AV2Context : DbContext
                 .HasColumnName("DESCRICAO");
         });
 
-        modelBuilder.Entity<Vendum>(entity =>
+        modelBuilder.Entity<Venda>(entity =>
         {
             entity.ToTable("VENDA");
 
