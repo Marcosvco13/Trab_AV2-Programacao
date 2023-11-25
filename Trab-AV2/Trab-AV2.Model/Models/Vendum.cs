@@ -5,7 +5,7 @@ using System.Collections.Generic;
 
 namespace Trab_AV2.Model.Models;
 
-public partial class Venda
+public partial class Vendum
 {
     public int Id { get; set; }
 

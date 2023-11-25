@@ -4003,6 +4003,21 @@
         "runtime": {
           "lib/netstandard1.3/System.Xml.XDocument.dll": {}
         }
+      },
+      "Trab-AV2.Model/1.0.0": {
+        "type": "project",
+        "framework": ".NETCoreApp,Version=v7.0",
+        "dependencies": {
+          "Microsoft.AspNetCore.Identity.UI": "7.0.14",
+          "Microsoft.EntityFrameworkCore": "7.0.14",
+          "Microsoft.EntityFrameworkCore.SqlServer": "7.0.14"
+        },
+        "compile": {
+          "bin/placeholder/Trab-AV2.Model.dll": {}
+        },
+        "runtime": {
+          "bin/placeholder/Trab-AV2.Model.dll": {}
+        }
       }
     }
   },
@@ -11608,6 +11623,11 @@
         "system.xml.xdocument.4.3.0.nupkg.sha512",
         "system.xml.xdocument.nuspec"
       ]
+    },
+    "Trab-AV2.Model/1.0.0": {
+      "type": "project",
+      "path": "../Trab-AV2.Model/Trab-AV2.Model.csproj",
+      "msbuildProject": "../Trab-AV2.Model/Trab-AV2.Model.csproj"
     }
   },
   "projectFileDependencyGroups": {
@@ -11618,7 +11638,8 @@
       "Microsoft.EntityFrameworkCore.Design >= 7.0.14",
       "Microsoft.EntityFrameworkCore.SqlServer >= 7.0.14",
       "Microsoft.EntityFrameworkCore.Tools >= 7.0.14",
-      "Microsoft.VisualStudio.Web.CodeGeneration.Design >= 7.0.11"
+      "Microsoft.VisualStudio.Web.CodeGeneration.Design >= 7.0.11",
+      "Trab-AV2.Model >= 1.0.0"
     ]
   },
   "packageFolders": {
@@ -11654,7 +11675,11 @@
       "frameworks": {
         "net7.0": {
           "targetAlias": "net7.0",
-          "projectReferences": {}
+          "projectReferences": {
+            "C:\\Users\\danie\\Documents\\Faculdade\\Projento Integrador\\Projeto_Integrador_2\\sistema-padaria\\Trab-AV2\\Trab-AV2.Model\\Trab-AV2.Model.csproj": {
+              "projectPath": "C:\\Users\\danie\\Documents\\Faculdade\\Projento Integrador\\Projeto_Integrador_2\\sistema-padaria\\Trab-AV2\\Trab-AV2.Model\\Trab-AV2.Model.csproj"
+            }
+          }
         }
       },
       "warningProperties": {
