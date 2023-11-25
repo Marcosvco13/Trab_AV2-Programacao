@@ -3,9 +3,12 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 17
 VisualStudioVersion = 17.7.34221.43
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Trab-AV2", "Trab-AV2\Trab-AV2.csproj", "{509DD16D-3920-4EC8-8337-93EC960D83BD}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Trab-AV2", "Trab-AV2\Trab-AV2.csproj", "{509DD16D-3920-4EC8-8337-93EC960D83BD}"
+	ProjectSection(ProjectDependencies) = postProject
+		{D1696595-919E-4E69-B192-7D7EDAE2D1B9} = {D1696595-919E-4E69-B192-7D7EDAE2D1B9}
+	EndProjectSection
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Trab-AV2.Model", "Trab-AV2.Model\Trab-AV2.Model.csproj", "{D1696595-919E-4E69-B192-7D7EDAE2D1B9}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Trab-AV2.Model", "Trab-AV2.Model\Trab-AV2.Model.csproj", "{D1696595-919E-4E69-B192-7D7EDAE2D1B9}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

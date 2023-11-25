@@ -11,11 +11,10 @@
 using System;
 using System.Reflection;
 
-[assembly: Microsoft.AspNetCore.Identity.UI.UIFrameworkAttribute("Bootstrap5")]
 [assembly: System.Reflection.AssemblyCompanyAttribute("Trab-AV2.Model")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+122e02fd6cb51d5570d4b52076622bdc5663310c")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+bc272e61dc400b38343e0234412679ba72017f1f")]
 [assembly: System.Reflection.AssemblyProductAttribute("Trab-AV2.Model")]
 [assembly: System.Reflection.AssemblyTitleAttribute("Trab-AV2.Model")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]
