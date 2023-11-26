@@ -9,8 +9,24 @@
       "PackagePath": "staticwebassets\\css\\site.css"
     },
     {
+      "Id": "D:\\Faculdade\\C#\\Trab_AV2-Programacao\\Trab-AV2\\Trab-AV2\\wwwroot\\css\\styles.css",
+      "PackagePath": "staticwebassets\\css\\styles.css"
+    },
+    {
       "Id": "D:\\Faculdade\\C#\\Trab_AV2-Programacao\\Trab-AV2\\Trab-AV2\\wwwroot\\favicon.ico",
       "PackagePath": "staticwebassets\\favicon.ico"
+    },
+    {
+      "Id": "D:\\Faculdade\\C#\\Trab_AV2-Programacao\\Trab-AV2\\Trab-AV2\\wwwroot\\img\\Bolo.jpg",
+      "PackagePath": "staticwebassets\\img\\Bolo.jpg"
+    },
+    {
+      "Id": "D:\\Faculdade\\C#\\Trab_AV2-Programacao\\Trab-AV2\\Trab-AV2\\wwwroot\\img\\Doces.jpg",
+      "PackagePath": "staticwebassets\\img\\Doces.jpg"
+    },
+    {
+      "Id": "D:\\Faculdade\\C#\\Trab_AV2-Programacao\\Trab-AV2\\Trab-AV2\\wwwroot\\img\\Pao.jpg",
+      "PackagePath": "staticwebassets\\img\\Pao.jpg"
     },
     {
       "Id": "D:\\Faculdade\\C#\\Trab_AV2-Programacao\\Trab-AV2\\Trab-AV2\\wwwroot\\js\\site.js",

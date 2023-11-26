@@ -12,6 +12,7 @@ public partial class PADARIA_AV2Context : DbContext
         : base(options)
     {
     }
+
     public PADARIA_AV2Context()
     {
     }
@@ -96,8 +97,9 @@ public partial class PADARIA_AV2Context : DbContext
                 .IsRequired()
                 .HasMaxLength(450)
                 .HasColumnName("ID_USER");
+            entity.Property(e => e.Qtd).HasColumnName("QTD");
             entity.Property(e => e.ValorVenda)
-                .HasColumnType("decimal(18, 0)")
+                .HasColumnType("decimal(18, 2)")
                 .HasColumnName("VALOR_VENDA");
         });
 

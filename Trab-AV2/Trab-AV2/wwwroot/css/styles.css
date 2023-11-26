@@ -1,0 +1,106 @@
+﻿/* Reset de estilos para garantir consistência */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+/* Estilos gerais */
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    line-height: 1.6;
+    background-color: #f9f9f9;
+    color: #333;
+    margin: 0;
+    padding: 0;
+}
+
+header {
+    background-color: #fff;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    padding: 20px 0;
+}
+
+nav ul {
+    list-style: none;
+    text-align: center;
+}
+
+nav ul li {
+    display: inline;
+    margin-right: 20px;
+}
+
+nav ul li a {
+    text-decoration: none;
+    color: #333;
+    font-weight: bold;
+    font-size: 16px;
+    transition: color 0.3s ease-in-out;
+}
+
+nav ul li a:hover {
+    color: #e67e22;
+}
+
+main {
+    padding: 20px;
+    display: flex;
+}
+
+section {
+    margin-bottom: 40px;
+}
+
+h1 {
+    font-size: 36px;
+    margin-bottom: 10px;
+    color: #e67e22;
+}
+
+h2 {
+    font-size: 28px;
+    margin-bottom: 15px;
+}
+
+/* Mantenha o restante do código CSS anterior e adicione o seguinte */
+
+.product-container {
+    display:  inline-block;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    vertical-align: top;
+}
+
+.product {
+    width: calc(35% - 20px); /* Ajusta o tamanho para duas colunas com espaçamento */
+    margin-bottom: 30px;
+    border-radius: 5px;
+    overflow: hidden;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s ease-in-out;
+    box-sizing: border-box; /* Garante que as bordas não alterem o tamanho do elemento */
+    float: left;
+}
+
+.product:hover {
+    transform: translateY(-5px);
+}
+
+.product img {
+    width: 100%;
+    height: auto;
+    border-radius: 5px 5px 0 0;
+}
+
+.product h3 {
+    font-size: 20px;
+    margin: 15px 0;
+    color: #333;
+}
+
+.product p {
+    font-size: 14px;
+    color: #555;
+    padding: 0 20px 20px;
+}

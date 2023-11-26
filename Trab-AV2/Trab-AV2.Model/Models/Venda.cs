@@ -16,4 +16,6 @@ public partial class Venda
     public DateTime? DataVenda { get; set; }
 
     public decimal? ValorVenda { get; set; }
+
+    public int? Qtd { get; set; }
 }
