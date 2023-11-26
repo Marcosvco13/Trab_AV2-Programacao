@@ -22,11 +22,11 @@ namespace Trab_AV2.Models
             {
                 listaRetorno.Add(new ItensVendaProduto
                 {
-                    CodigoVenda = codVenda,
-                    CodigoProduto = item.ItvCodigoProduto,
-                    NomeProduto = db.Produtos.Find(item.ItvCodigoProduto)!.NmProduto,
-                    Quantidade = item.ItvQuantidade,
-                    ValorVenda = item.ItvValorItem,
+                    CodigoVenda     = codVenda,
+                    CodigoProduto   = item.ItvCodigoProduto,
+                    NomeProduto     = db.Produtos.Find(item.ItvCodigoProduto)!.NmProduto,
+                    Quantidade      = item.ItvQuantidade,
+                    ValorVenda      = item.ItvValorItem,
                 });
             }
             return listaRetorno;

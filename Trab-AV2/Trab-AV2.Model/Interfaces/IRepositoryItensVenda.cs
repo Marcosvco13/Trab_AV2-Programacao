@@ -7,7 +7,7 @@ using Trab_AV2.Model.Models;
 
 namespace Trab_AV2.Model.Interfaces
 {
-    public interface IRepositoryVwEstoque : IRepositoryBase<VwEstoque>
-{
-}
+    public interface IRepositoryItensVenda : IRepositoryBase<ItensVenda>
+    {
+    }
 }

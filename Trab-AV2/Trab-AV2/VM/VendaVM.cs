@@ -7,11 +7,8 @@ namespace Trab_AV2.VM
     {
         public int CodigoVenda { get; set; }
         public int? CodigoProduto { get; set; }
-
         public string? CodigoCliente { get; set; }
-
         public DateTime? DataDaVenda { get; set; }
-
         public decimal? ValorDaVenda { get; set; }
 
         public List<ItensVendaProduto> ListaProdutos { get; set; }

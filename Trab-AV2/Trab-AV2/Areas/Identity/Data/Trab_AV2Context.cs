@@ -19,7 +19,7 @@ public class Trab_AV2Context : IdentityDbContext<Trab_AV2User>
 
     protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
 
-=> optionsBuilder.UseSqlServer("data source=.\\SQLEXPRESS;Initial Catalog=PADARIA_AV2;User Id=sa;Password=22102001da;TrustserverCertificate=True");
+=> optionsBuilder.UseSqlServer("data source=NOTEBOOK-MARCOS\\SQLEXPRESS;Initial Catalog=PADARIA_AV2;User Id=sa;Password=2000@edu.sau;TrustserverCertificate=True");
 
     protected override void OnModelCreating(ModelBuilder builder)
     {

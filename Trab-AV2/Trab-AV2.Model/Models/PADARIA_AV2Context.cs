@@ -12,15 +12,13 @@ public partial class PADARIA_AV2Context : DbContext
         : base(options)
     {
     }
-
     public PADARIA_AV2Context()
     {
-
     }
 
     protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
 
-=> optionsBuilder.UseSqlServer("data source=.\\SQLEXPRESS;Initial Catalog=PADARIA_AV2;User Id=sa;Password=22102001da;TrustserverCertificate=True");
+=> optionsBuilder.UseSqlServer("data source=NOTEBOOK-MARCOS\\SQLEXPRESS;Initial Catalog=PADARIA_AV2;User Id=sa;Password=2000@edu.sau;TrustserverCertificate=True");
     public virtual DbSet<AspNetUser> AspNetUsers { get; set; }
 
     public virtual DbSet<ItensVenda> ItensVenda { get; set; }
@@ -30,7 +28,8 @@ public partial class PADARIA_AV2Context : DbContext
     public virtual DbSet<SimNao> SimNaos { get; set; }
 
     public virtual DbSet<Venda> Venda { get; set; }
-    public virtual DbSet<VwEstoque> VwEstoque { get; set; }
+
+    public virtual DbSet<VwEstoque> VwEstoques { get; set; }
 
     protected override void OnModelCreating(ModelBuilder modelBuilder)
     {
@@ -50,10 +49,21 @@ public partial class PADARIA_AV2Context : DbContext
 
         modelBuilder.Entity<ItensVenda>(entity =>
         {
-            entity.HasNoKey();
+            entity.HasKey(e => e.ItvCodigo);
 
+            entity.Property(e => e.ItvCodigo).ValueGeneratedNever();
             entity.Property(e => e.ItvQuantidade).HasColumnType("decimal(18, 2)");
             entity.Property(e => e.ItvValorItem).HasColumnType("decimal(18, 2)");
+
+            entity.HasOne(d => d.ItvCodigoProdutoNavigation).WithMany(p => p.ItensVenda)
+                .HasForeignKey(d => d.ItvCodigoProduto)
+                .OnDelete(DeleteBehavior.ClientSetNull)
+                .HasConstraintName("FK_ItensVenda_PRODUTOS");
+
+            entity.HasOne(d => d.ItvCodigoVendaNavigation).WithMany(p => p.ItensVenda)
+                .HasForeignKey(d => d.ItvCodigoVenda)
+                .OnDelete(DeleteBehavior.ClientSetNull)
+                .HasConstraintName("FK_ItensVenda_VENDA");
         });
 
         modelBuilder.Entity<Produto>(entity =>
@@ -79,6 +89,11 @@ public partial class PADARIA_AV2Context : DbContext
             entity.Property(e => e.Valor)
                 .HasColumnType("decimal(18, 0)")
                 .HasColumnName("VALOR");
+
+            entity.HasOne(d => d.DispNavigation).WithMany(p => p.Produtos)
+                .HasForeignKey(d => d.Disp)
+                .OnDelete(DeleteBehavior.ClientSetNull)
+                .HasConstraintName("FK_PRODUTOS_SIM_NAO");
         });
 
         modelBuilder.Entity<SimNao>(entity =>
@@ -111,6 +126,11 @@ public partial class PADARIA_AV2Context : DbContext
             entity.Property(e => e.ValorVenda)
                 .HasColumnType("decimal(18, 0)")
                 .HasColumnName("VALOR_VENDA");
+
+            entity.HasOne(d => d.IdProdutoNavigation).WithMany(p => p.Venda)
+                .HasForeignKey(d => d.IdProduto)
+                .OnDelete(DeleteBehavior.ClientSetNull)
+                .HasConstraintName("FK_VENDA_PRODUTOS");
         });
 
         modelBuilder.Entity<VwEstoque>(entity =>
@@ -119,17 +139,22 @@ public partial class PADARIA_AV2Context : DbContext
                 .HasNoKey()
                 .ToView("VW_ESTOQUE");
 
-            entity.Property(e => e.ProDescricao)
+            entity.Property(e => e.Id)
+                .ValueGeneratedOnAdd()
+                .HasColumnName("ID");
+            entity.Property(e => e.NmProduto)
                 .IsRequired()
-                .HasMaxLength(200)
-                .IsUnicode(false);
-            entity.Property(e => e.Procodigo).HasColumnName("PROCODIGO");
-            entity.Property(e => e.Quantidade)
-                .HasColumnType("decimal(38, 0)")
-                .HasColumnName("QUANTIDADE");
-            entity.Property(e => e.Valorvenda)
-                .HasColumnType("decimal(18, 2)")
-                .HasColumnName("VALORVENDA");
+                .HasMaxLength(100)
+                .IsUnicode(false)
+                .HasColumnName("NM_PRODUTO");
+            entity.Property(e => e.Qtd)
+                .IsRequired()
+                .HasMaxLength(10)
+                .IsUnicode(false)
+                .HasColumnName("QTD");
+            entity.Property(e => e.Valor)
+                .HasColumnType("decimal(18, 0)")
+                .HasColumnName("VALOR");
         });
 
         OnModelCreatingPartial(modelBuilder);

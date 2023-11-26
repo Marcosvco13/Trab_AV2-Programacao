@@ -15,14 +15,12 @@ namespace Trab_AV2.Model.Services
         public RepositoryItensVenda oRepositoryItensVenda { get; set; }
         public RepositoryVwEstoque oRepositoryVwEstoque { get; set; }
 
-
         public ServiceVenda() 
         {
             oRepositoryVenda = new RepositoryVenda();
             oRepositoryProduto = new RepositoryProduto();
             oRepositoryItensVenda = new RepositoryItensVenda();
             oRepositoryVwEstoque = new RepositoryVwEstoque();
-
         }
     }
 }

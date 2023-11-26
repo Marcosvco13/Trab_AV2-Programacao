@@ -34,9 +34,13 @@
       {
          "Name": "[dbo].[VENDA]",
          "ObjectType": 0
+      },
+      {
+         "Name": "[dbo].[VW_ESTOQUE]",
+         "ObjectType": 3
       }
    ],
-   "UiHint": "desktop-jqadb68\\sqlexpress.PADARIA_AV2.dbo",
+   "UiHint": "notebook-marcos\\sqlexpress.PADARIA_AV2.dbo",
    "UncountableWords": null,
    "UseBoolPropertiesWithoutDefaultSql": false,
    "UseDatabaseNames": false,

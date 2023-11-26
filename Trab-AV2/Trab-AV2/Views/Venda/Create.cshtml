@@ -2,7 +2,7 @@
 @using Trab_AV2.Areas.Identity.Data
 @using Trab_AV2.Model.Models;
 
-@model Trab_AV2.Model.Models.Venda
+@model Trab_AV2.VM.VendaVM
 
 @inject UserManager<Trab_AV2User> UserManager
 
@@ -27,11 +27,11 @@
                 <select class="form-select" id="cboProduto">
                     <option selected value="">Selecione um produto</option>
                     @{
-                        foreach (VwEstoque produto in ViewBag.listaVenda)
-                        {
-                            <option data-qtd="@produto.Quantidade" data-valor="@produto.Valorvenda" value="@produto.Procodigo">@produto.ProDescricao</option>
+                        // foreach (VwEstoque produto in ViewBag.listaVenda)
+                        // {
+                        //     <option data-qtd="@produto.Quantidade" data-valor="@produto.Valorvenda" value="@produto.Procodigo">@produto.ProDescricao</option>
 
-                        }
+                        // }
                     }
                 </select>
 
@@ -44,21 +44,21 @@
 
 
             <div class="form-group">
-                <label asp-for="IdUser" class="control-label" hidden></label>
-                <input asp-for="IdUser" class="form-control mb-2" value="@UserManager.GetUserId(User)" hidden/>
-                <span asp-validation-for="IdUser" class="text-danger"></span>
+                <label asp-for="CodigoCliente" class="control-label" hidden></label>
+                <input asp-for="CodigoCliente" class="form-control mb-2" value="@UserManager.GetUserId(User)" hidden/>
+                <span asp-validation-for="CodigoCliente" class="text-danger"></span>
             </div>
 
 
             <div class="form-group">
-                <label asp-for="DataVenda" class="control-label"></label>
-                <input asp-for="DataVenda" id="txtData" class="form-control" />
-                <span asp-validation-for="DataVenda" class="text-danger"></span>
+                <label asp-for="DataDaVenda" class="control-label"></label>
+                <input asp-for="DataDaVenda" id="txtData" class="form-control" />
+                <span asp-validation-for="DataDaVenda" class="text-danger"></span>
             </div>
             <div class="form-group">
-                <label asp-for="ValorVenda" class="control-label"></label>
-                <input asp-for="ValorVenda" id="txtValor" class="form-control" />
-                <span asp-validation-for="ValorVenda" class="text-danger"></span>
+                <label asp-for="ValorDaVenda" class="control-label"></label>
+                <input asp-for="ValorDaVenda" id="txtValor" class="form-control" />
+                <span asp-validation-for="ValorDaVenda" class="text-danger"></span>
             </div>
             <button type="button" class="btn btn-primary adicionar">Adicionar</button>
 
@@ -93,7 +93,7 @@
                                 <tr>
                                     <td>
                                         <input type="hidden" name="ListaProdutos[@contador].IdProduto" value="item.IdProduto" />
-                                        @item.IdProduto
+                                        @item.CodigoProduto
                                     </td>
                                     <td>
                                         <input type="hidden" name="ListaProdutos[@contador].ValorVenda" value="@item.ValorVenda" />

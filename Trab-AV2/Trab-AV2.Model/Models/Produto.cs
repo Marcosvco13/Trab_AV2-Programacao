@@ -18,4 +18,10 @@ public partial class Produto
     public decimal Valor { get; set; }
 
     public int Disp { get; set; }
+
+    public virtual SimNao DispNavigation { get; set; }
+
+    public virtual ICollection<ItensVenda> ItensVenda { get; set; } = new List<ItensVenda>();
+
+    public virtual ICollection<Venda> Venda { get; set; } = new List<Venda>();
 }

@@ -17,5 +17,7 @@ public partial class Venda
 
     public decimal? ValorVenda { get; set; }
 
+    public virtual Produto IdProdutoNavigation { get; set; }
+
     public virtual ICollection<ItensVenda> ItensVenda { get; set; } = new List<ItensVenda>();
 }

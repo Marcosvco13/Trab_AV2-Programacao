@@ -7,11 +7,11 @@ namespace Trab_AV2.Model.Models;
 
 public partial class VwEstoque
 {
-    public string ProDescricao { get; set; }
+    public string NmProduto { get; set; }
 
-    public int Procodigo { get; set; }
+    public int Id { get; set; }
 
-    public decimal? Quantidade { get; set; }
+    public string Qtd { get; set; }
 
-    public decimal Valorvenda { get; set; }
+    public decimal Valor { get; set; }
 }
