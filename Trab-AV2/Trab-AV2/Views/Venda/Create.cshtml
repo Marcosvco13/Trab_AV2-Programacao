@@ -45,10 +45,36 @@
                 <input asp-for="ValorVenda" class="form-control" />
                 <span asp-validation-for="ValorVenda" class="text-danger"></span>
             </div>
+
+            <button type="button" id="btnAdicionar" class="btn btn-primary">Adicionar</button>
+
+
             <div class="form-group">
                 <input type="submit" value="Create" class="btn btn-primary" />
             </div>
         </form>
+
+        <!-- Tabela para exibir os produtos selecionados -->
+        <div class="row mt-4">
+            <div class="col-md-6">
+                <h4>Produtos Selecionados</h4>
+                <table class="table table-bordered">
+                    <thead>
+                        <tr>
+                            <th>Nome</th>
+                            <th>Quantidade</th>
+                            <!-- Adicione outras colunas conforme necessário -->
+                        </tr>
+                    </thead>
+                    <tbody id="tabelaProdutosSelecionados">
+                        <!-- Aqui serão listados os produtos selecionados -->
+                    </tbody>
+                </table>
+            </div>
+        </div>
+
+
+
     </div>
 </div>
 
@@ -57,5 +83,54 @@
 </div>
 
 @section Scripts {
-    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+    @{
+        await Html.RenderPartialAsync("_ValidationScriptsPartial");
+    }
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script>
+        $(document).ready(function () {
+            var nomeProdutoSelecionado = ''; // Variável para armazenar o nome do produto selecionado
+            var idProdutoSelecionado = ''; // Variável para armazenar o ID do produto selecionado
+
+            // Captura a mudança na seleção do produto
+            $('#cboProduto').change(function () {
+                nomeProdutoSelecionado = $('#cboProduto option:selected').text();
+                idProdutoSelecionado = $('#cboProduto').val();
+            });
+
+            // Quando o botão "Adicionar" for clicado
+            $('#btnAdicionar').click(function () {
+                if (nomeProdutoSelecionado && idProdutoSelecionado) {
+                    $('#tabelaProdutosSelecionados').append(
+                        '<tr>' +
+                        '<td>' + nomeProdutoSelecionado + '</td>' +
+                        '<td><input type="number" class="form-control quantidade" value="1" /></td>' +
+                        // Adicione outras colunas conforme necessário
+                        '</tr>'
+                    );
+                }
+            });
+
+            // Quando o botão "Create" for clicado
+            $('form').submit(function (event) {
+                event.preventDefault();
+
+                // Aqui você pode coletar os produtos da tabela de produtos selecionados
+                var produtosSelecionados = [];
+                $('#tabelaProdutosSelecionados tr').each(function () {
+                    var nomeProduto = $(this).find('td:first').text();
+                    var quantidade = $(this).find('.quantidade').val();
+
+                    produtosSelecionados.push({
+                        NomeProduto: nomeProduto,
+                        Quantidade: quantidade
+                    });
+                });
+
+                // Faça algo com a lista de produtos selecionados (por exemplo, enviar para o servidor)
+                console.log(produtosSelecionados);
+            });
+        });
+    </script>
 }
+
