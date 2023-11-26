@@ -28,6 +28,7 @@ namespace Trab_AV2.Controllers
         public void CarregarViewBag()
         {
             ViewData["Produto"] = new SelectList(_ServiceVenda.oRepositoryProduto.SelecionarTodos(), "Id", "NmProduto");
+            ViewBag.listaProdutos = _ServiceVenda.oRepositoryVwEstoque.SelecionarTodos();
         }
 
         [HttpGet]

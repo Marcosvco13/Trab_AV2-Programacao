@@ -12,22 +12,25 @@ public partial class PADARIA_AV2Context : DbContext
         : base(options)
     {
     }
+
     public PADARIA_AV2Context()
     {
+
     }
 
     protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
 
 => optionsBuilder.UseSqlServer("data source=.\\SQLEXPRESS;Initial Catalog=PADARIA_AV2;User Id=sa;Password=22102001da;TrustserverCertificate=True");
-
     public virtual DbSet<AspNetUser> AspNetUsers { get; set; }
+
+    public virtual DbSet<ItensVenda> ItensVenda { get; set; }
 
     public virtual DbSet<Produto> Produtos { get; set; }
 
     public virtual DbSet<SimNao> SimNaos { get; set; }
 
     public virtual DbSet<Venda> Venda { get; set; }
-    public virtual DbSet<VwEstoque> VwEstoque {get; set; }
+    public virtual DbSet<VwEstoque> VwEstoque { get; set; }
 
     protected override void OnModelCreating(ModelBuilder modelBuilder)
     {
@@ -43,6 +46,14 @@ public partial class PADARIA_AV2Context : DbContext
             entity.Property(e => e.NormalizedEmail).HasMaxLength(256);
             entity.Property(e => e.NormalizedUserName).HasMaxLength(256);
             entity.Property(e => e.UserName).HasMaxLength(256);
+        });
+
+        modelBuilder.Entity<ItensVenda>(entity =>
+        {
+            entity.HasNoKey();
+
+            entity.Property(e => e.ItvQuantidade).HasColumnType("decimal(18, 2)");
+            entity.Property(e => e.ItvValorItem).HasColumnType("decimal(18, 2)");
         });
 
         modelBuilder.Entity<Produto>(entity =>
@@ -72,7 +83,7 @@ public partial class PADARIA_AV2Context : DbContext
 
         modelBuilder.Entity<SimNao>(entity =>
         {
-            entity.HasKey(e => e.Id).HasName("PK__SIM_NAO__3214EC27D10DE8D7");
+            entity.HasKey(e => e.Id).HasName("PK__SIM_NAO__3214EC278C446DF7");
 
             entity.ToTable("SIM_NAO");
 

@@ -1,11 +1,12 @@
-﻿using System;
+﻿using Microsoft.EntityFrameworkCore;
+using Trab_AV2.Model.Models;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-using Trab_AV2.Model.Repositories;
 using Trab_AV2.Model.Models;
-using Microsoft.Identity.Client;
+using Trab_AV2.Model.Repositories;
 
 namespace Trab_AV2.Model.Repositories
 {
@@ -13,12 +14,12 @@ namespace Trab_AV2.Model.Repositories
     {
         public RepositoryVwEstoque(bool saveChanges = true) : base(saveChanges)
         {
-
         }
 
-        public VwEstoque SelecionarEstoqueProduto(int codProduto)
+        public VwEstoque SelecionaEstoqueProduo(int codProduto)
         {
             return _context.VwEstoque.FirstOrDefault(x => x.Procodigo == codProduto);
         }
+
     }
 }

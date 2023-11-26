@@ -14,6 +14,8 @@ namespace Trab_AV2.VM
 
         public decimal? ValorDaVenda { get; set; }
 
+        public List<ItensVendaProduto> ListaProdutos { get; set; }
+
         public VendaVM()
         {
 
@@ -23,29 +25,43 @@ namespace Trab_AV2.VM
         {
             var db = new PADARIA_AV2Context();
             var venda = db.Venda.Find(codVenda);
-            var vendaVm = new VendaVM();
 
-            vendaVm.CodigoVenda = venda.Id;
-            vendaVm.CodigoProduto = venda.IdProduto;
-            vendaVm.CodigoCliente = db.AspNetUsers.Find(venda.IdUser).Email;
-            vendaVm.DataDaVenda = venda.DataVenda;
-            vendaVm.ValorDaVenda = venda.ValorVenda;
-            return vendaVm;
+            var listaProdutos = new List<ItensVendaProduto>();
+            listaProdutos = ItensVendaProduto.ListaProdutosVenda(codVenda);
+            return new VendaVM
+            {
+                CodigoVenda = venda.Id,
+                CodigoProduto = venda.IdProduto,
+                CodigoCliente = db.AspNetUsers.Find(venda.IdUser).Email,
+                DataDaVenda = venda.DataVenda,
+                ValorDaVenda = venda.ValorVenda,
+                ListaProdutos = listaProdutos
+            };
         }
 
 
         public static List<VendaVM> ListarTodasVendas()
         {
             var db = new PADARIA_AV2Context();
-            return (from venda in db.Venda
-                    select new VendaVM
-                    {
-                        CodigoVenda = venda.Id,
-                        CodigoProduto = venda.IdProduto,
-                        CodigoCliente = venda.IdUser,
-                        DataDaVenda = venda.DataVenda,
-                        ValorDaVenda = venda.ValorVenda,
-                    }).ToList();
+            var venda = db.Venda.ToList();
+            var listaRetorno = new List<VendaVM>();
+            foreach(var item  in venda)
+            {
+                var listaProdutos = new List<ItensVendaProduto>();
+                listaProdutos = ItensVendaProduto.ListaProdutosVenda(item.Id);
+                var vendaVm = new VendaVM
+                {
+                    CodigoVenda = item.Id,
+                    CodigoProduto = item.IdProduto,
+                    CodigoCliente = item.IdUser,
+                    DataDaVenda = item.DataVenda,
+                    ValorDaVenda = item.ValorVenda,
+                    ListaProdutos = listaProdutos
+                };
+                listaRetorno.Add(vendaVm);
+            }
+            return listaRetorno;
+
         }
     }
 }
