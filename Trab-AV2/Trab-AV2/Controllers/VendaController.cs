@@ -17,7 +17,7 @@ namespace Trab_AV2.Controllers
         }
         public IActionResult Index()
         {
-            return View();
+            return View(VendaVM.ListarTodasVendas());
         }
 
         public void CarregarViewBag()
