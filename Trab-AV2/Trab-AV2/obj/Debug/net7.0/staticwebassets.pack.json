@@ -9,6 +9,10 @@
       "PackagePath": "staticwebassets\\css\\site.css"
     },
     {
+      "Id": "D:\\Faculdade\\C#\\Trab_AV2-Programacao\\Trab-AV2\\Trab-AV2\\wwwroot\\css\\styles.css",
+      "PackagePath": "staticwebassets\\css\\styles.css"
+    },
+    {
       "Id": "D:\\Faculdade\\C#\\Trab_AV2-Programacao\\Trab-AV2\\Trab-AV2\\wwwroot\\favicon.ico",
       "PackagePath": "staticwebassets\\favicon.ico"
     },

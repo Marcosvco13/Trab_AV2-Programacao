@@ -1,6 +1,6 @@
 {
   "Version": 1,
-  "Hash": "f7AoZmq4SpJV0I+kJoYe5X48ep8BiBvK4PFhLKeBXik=",
+  "Hash": "1CT11fBuAF0rw3JKIFMYy6Vt9tbtbPF0mhpmAB+/m1I=",
   "Source": "Trab-AV2",
   "BasePath": "_content/Trab-AV2",
   "Mode": "Default",
@@ -1212,6 +1212,25 @@
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
       "OriginalItemSpec": "wwwroot\\css\\site.css"
+    },
+    {
+      "Identity": "D:\\Faculdade\\C#\\Trab_AV2-Programacao\\Trab-AV2\\Trab-AV2\\wwwroot\\css\\styles.css",
+      "SourceId": "Trab-AV2",
+      "SourceType": "Discovered",
+      "ContentRoot": "D:\\Faculdade\\C#\\Trab_AV2-Programacao\\Trab-AV2\\Trab-AV2\\wwwroot\\",
+      "BasePath": "_content/Trab-AV2",
+      "RelativePath": "css/styles.css",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "AssetMergeBehavior": "PreferTarget",
+      "AssetMergeSource": "",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\css\\styles.css"
     },
     {
       "Identity": "D:\\Faculdade\\C#\\Trab_AV2-Programacao\\Trab-AV2\\Trab-AV2\\wwwroot\\favicon.ico",

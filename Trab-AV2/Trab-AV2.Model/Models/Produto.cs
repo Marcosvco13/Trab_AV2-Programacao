@@ -22,6 +22,4 @@ public partial class Produto
     public virtual SimNao DispNavigation { get; set; }
 
     public virtual ICollection<ItensVenda> ItensVenda { get; set; } = new List<ItensVenda>();
-
-    public virtual ICollection<Venda> Venda { get; set; } = new List<Venda>();
 }

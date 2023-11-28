@@ -19,6 +19,7 @@ public partial class PADARIA_AV2Context : DbContext
     protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
 
 => optionsBuilder.UseSqlServer("data source=NOTEBOOK-MARCOS\\SQLEXPRESS;Initial Catalog=PADARIA_AV2;User Id=sa;Password=2000@edu.sau;TrustserverCertificate=True");
+
     public virtual DbSet<AspNetUser> AspNetUsers { get; set; }
 
     public virtual DbSet<ItensVenda> ItensVenda { get; set; }
@@ -118,19 +119,10 @@ public partial class PADARIA_AV2Context : DbContext
             entity.Property(e => e.DataVenda)
                 .HasColumnType("datetime")
                 .HasColumnName("DATA_VENDA");
-            entity.Property(e => e.IdProduto).HasColumnName("ID_PRODUTO");
             entity.Property(e => e.IdUser)
                 .IsRequired()
                 .HasMaxLength(450)
                 .HasColumnName("ID_USER");
-            entity.Property(e => e.ValorVenda)
-                .HasColumnType("decimal(18, 0)")
-                .HasColumnName("VALOR_VENDA");
-
-            entity.HasOne(d => d.IdProdutoNavigation).WithMany(p => p.Venda)
-                .HasForeignKey(d => d.IdProduto)
-                .OnDelete(DeleteBehavior.ClientSetNull)
-                .HasConstraintName("FK_VENDA_PRODUTOS");
         });
 
         modelBuilder.Entity<VwEstoque>(entity =>

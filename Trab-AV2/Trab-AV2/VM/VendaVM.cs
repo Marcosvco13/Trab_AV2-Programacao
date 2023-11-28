@@ -6,10 +6,9 @@ namespace Trab_AV2.VM
     public class VendaVM
     {
         public int CodigoVenda { get; set; }
-        public int? CodigoProduto { get; set; }
+        public string NomeCliente { get; set; }
         public string? CodigoCliente { get; set; }
         public DateTime? DataDaVenda { get; set; }
-        public decimal? ValorDaVenda { get; set; }
 
         public List<ItensVendaProduto> ListaProdutos { get; set; }
 
@@ -28,14 +27,12 @@ namespace Trab_AV2.VM
             return new VendaVM
             {
                 CodigoVenda = venda.Id,
-                CodigoProduto = venda.IdProduto,
-                CodigoCliente = db.AspNetUsers.Find(venda.IdUser).Email,
+                CodigoCliente = venda.IdUser,
+                NomeCliente = db.AspNetUsers.Find(venda.IdUser).Email,
                 DataDaVenda = venda.DataVenda,
-                ValorDaVenda = venda.ValorVenda,
                 ListaProdutos = listaProdutos
             };
         }
-
 
         public static List<VendaVM> ListarTodasVendas()
         {
@@ -49,10 +46,9 @@ namespace Trab_AV2.VM
                 var vendaVm = new VendaVM
                 {
                     CodigoVenda = item.Id,
-                    CodigoProduto = item.IdProduto,
                     CodigoCliente = item.IdUser,
                     DataDaVenda = item.DataVenda,
-                    ValorDaVenda = item.ValorVenda,
+                    NomeCliente = db.AspNetUsers.Find(item.IdUser).Email,
                     ListaProdutos = listaProdutos
                 };
                 listaRetorno.Add(vendaVm);

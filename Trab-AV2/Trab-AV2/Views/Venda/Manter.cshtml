@@ -10,61 +10,62 @@
     ViewData["Title"] = "Manter";
 }
 
+<h1>Vendas</h1>
+
 <h4>Venda de Produtos</h4>
+
 <hr />
 <div class="row">
     <div class="col-md-4">
         <form asp-action="Manter">
+            <div>
+                <label class="form-label">Valor Total: </label><label class="form-label" name="lblValor" id="lblValor">0</label>
+            </div>
             <div asp-validation-summary="ModelOnly" class="text-danger"></div>
 
+
             <input type="hidden" asp-for="CodigoVenda" class="form-control" />
-            
-            <div style="display: flex">
 
-                <div class="form-group">
-                    <label class="control-label">Produto</label>
-                    <select class="form-select mb-2" id="cboProduto">
-                        <option selected value="">Selecione um produto</option>
-                        @{
-                            foreach (VwEstoque produto in ViewBag.listaProdutos)
-                            {
-                                    <option data-qtd="@produto.Qtd" data-valor="@produto.Valor">"@produto.NmProduto</option>
-                            }
-                        }
-                    </select>
-                </div>
+            <div style="display: flex;width:100%">
 
-                <div class="form-group">
-                    <label asp-for="CodigoCliente" class="control-label">Código do Vendedor</label>
-                    <input asp-for="CodigoCliente" class="form-control mb-2" value="@UserManager.GetUserId(User)" disabled />
-                    <span asp-validation-for="CodigoCliente" class="text-danger"></span>
-                </div>
-            </div>
-
-            <div style="display: flex">
-                <div class="form-group">
-                    <label asp-for="DataDaVenda" class="control-label">Data da Venda</label>
+                <div class="form-group col-md-5">
+                    <label asp-for="DataDaVenda" class="control-label"></label>
                     <input type="date" asp-for="DataDaVenda" class="form-control" />
                     <span asp-validation-for="DataDaVenda" class="text-danger"></span>
                 </div>
-                
-                <div>
-                    <label>Quantidade</label>
-                    <input type="text" id="txtQtd" class="form-control" />
+
+                <div class="form-group col-md-7">
+                    <label asp-for="CodigoCliente" class="control-label"></label>
+                    <input type="text" asp-for="CodigoCliente" class="form-control mb-2" value="@UserManager.GetUserId(User)" disabled />
+                    <span asp-validation-for="CodigoCliente" class="text-danger"></span>
+
                 </div>
-
             </div>
 
+            <div>
+            </div>
             <div class="form-group">
-                <label asp-for="ValorDaVenda" class="control-label">Valor da Venda</label>
-                <input asp-for="ValorDaVenda" id="txtValor" class="form-control" disabled/>
-                <span asp-validation-for="ValorDaVenda" class="text-danger"></span>
-            </div>
+                <label class="control-label">Produto</label>
+                <select class="form-select" id="cboProduto">
+                    <option selected value="">Selecione um produto</option>
+                    @{
+                        foreach (VwEstoque produto in ViewBag.listaProdutos)
+                        {
+                            <option data-qtd="@produto.Qtd" data-valor="@produto.Valor" value="@produto.Id">@produto.NmProduto</option>
 
-            <div class="form-group">
-                <button type="button" class="btn btn-primary adicionar">Incluir Produto</button>
+                        }
+                    }
+                </select>
+                <div>
+                    <label class="form-label">Quantidade</label>
+                    <input type="text" id="txtQuantidade" class="form-control" />
+                </div>
+                <div>
+                    <label class="form-label">Valor de Venda</label>
+                    <input type="text" id="txtValor" class="form-control" readonly />
+                </div>
+                <button type="button" class="btn btn-primary adicionar">Adicionar</button>
             </div>
-
             <div>
                 <table id="tbProdutos" class="table">
                     <thead>
@@ -105,11 +106,10 @@
                                         @item.ValorVenda
                                     </td>
                                     <td>
-                                        @valorTotal
-                                    </td>
-                                    <td>
                                         <button type="button" class="btn btn-danger remover">Remover</button>
                                     </td>
+
+
                                 </tr>
                                 contador += 1;
                             }
@@ -119,17 +119,18 @@
                     </tbody>
                 </table>
             </div>
-
-            <div class="form-group">
-                <input type="submit" value="Vender" class="btn btn-primary" />
-            </div>
-
+            <button class="btn btn-outline-success">Salvar</button>
         </form>
     </div>
 </div>
 
+<div>
+    <a asp-action="Index">Back to List</a>
+</div>
+
 @section Scripts {
     <script>
+
         $(".remover").on("click", function () {
             $(this).closest("tr").remove();
         });
@@ -139,19 +140,19 @@
             $(this).closest("tr").remove();
         });
 
+
         $(".adicionar").on("click", function () {
             var quantidadeEstoque = $("#cboProduto option:selected").attr("data-qtd");
-            var quantidade = $("#txtQtd").val();
 
+            var quantidade = $("#txtQuantidade").val();
             console.log('qtdEstoque', quantidadeEstoque, 'qtd', quantidade);
-
             var valorVenda = $("#txtValor").val().replace(".", ",");
-
             if (parseInt(quantidade) > parseInt(quantidadeEstoque)) {
                 alert('A quantidade não pode ser maior que o estoque.');
             } else {
 
                 var valorTotal = parseFloat(valorVenda.replace(",", ".")) * parseInt(quantidade);
+
                 var produto = $("#cboProduto option:selected").text();
                 var codProduto = $("#cboProduto").val();
                 var contador = $("#tbProdutos tbody tr").length;
@@ -174,15 +175,16 @@
             }
         })
 
-        $("#txtQtd").on("change", function () {
-            var qtd = $("#txtQtd").val();
+        $("#txtQuantidade").on("change", function () {
+            var qtd = $("#txtQuantidade").val();
             var valorItem = parseFloat($("#cboProduto option:selected").attr("data-valor"));
-            if (qtd != 0) {
-                valorItem += valorItem * qtd;
+            if(qtd > 0){
+                valorItem = valorItem * qtd;
             }
             $("#txtValor").val(valorItem);
+
+
         })
 
     </script>
-        
-    }
+}
