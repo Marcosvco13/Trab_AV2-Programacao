@@ -12,6 +12,7 @@ public partial class PADARIA_AV2Context : DbContext
         : base(options)
     {
     }
+
     public PADARIA_AV2Context()
     {
     }
@@ -52,7 +53,6 @@ public partial class PADARIA_AV2Context : DbContext
         {
             entity.HasKey(e => e.ItvCodigo);
 
-            entity.Property(e => e.ItvCodigo).ValueGeneratedNever();
             entity.Property(e => e.ItvQuantidade).HasColumnType("decimal(18, 2)");
             entity.Property(e => e.ItvValorItem).HasColumnType("decimal(18, 2)");
 

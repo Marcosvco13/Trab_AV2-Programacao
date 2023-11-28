@@ -58,7 +58,7 @@ namespace Trab_AV2.Controllers
                 {
                     listaItens.Add(new ItensVenda
                     {
-                        ItvCodigoProduto = item.CodigoVenda,
+                        ItvCodigoProduto = item.CodigoProduto,
                         ItvQuantidade = (decimal)item.Quantidade,
                         ItvValorItem = (decimal)item.ValorVenda
                     });

@@ -9,34 +9,26 @@
 @{
     ViewData["Title"] = "Manter";
 }
-
-<h1>Vendas</h1>
-
 <h4>Venda de Produtos</h4>
 
 <hr />
 <div class="row">
     <div class="col-md-4">
         <form asp-action="Manter">
-            <div>
-                <label class="form-label">Valor Total: </label><label class="form-label" name="lblValor" id="lblValor">0</label>
-            </div>
+
             <div asp-validation-summary="ModelOnly" class="text-danger"></div>
-
-
             <input type="hidden" asp-for="CodigoVenda" class="form-control" />
 
             <div style="display: flex;width:100%">
 
                 <div class="form-group col-md-5">
-                    <label asp-for="DataDaVenda" class="control-label"></label>
+                    <label asp-for="DataDaVenda" class="control-label">Data da Venda</label>
                     <input type="date" asp-for="DataDaVenda" class="form-control" />
                     <span asp-validation-for="DataDaVenda" class="text-danger"></span>
                 </div>
 
                 <div class="form-group col-md-7">
-                    <label asp-for="CodigoCliente" class="control-label"></label>
-                    <input type="text" asp-for="CodigoCliente" class="form-control mb-2" value="@UserManager.GetUserId(User)" disabled />
+                    <input type="text" asp-for="CodigoCliente" class="form-control mb-2" value="@UserManager.GetUserId(User)" hidden />
                     <span asp-validation-for="CodigoCliente" class="text-danger"></span>
 
                 </div>
@@ -125,7 +117,7 @@
 </div>
 
 <div>
-    <a asp-action="Index">Back to List</a>
+    <a asp-action="Index">Retornar</a>
 </div>
 
 @section Scripts {
