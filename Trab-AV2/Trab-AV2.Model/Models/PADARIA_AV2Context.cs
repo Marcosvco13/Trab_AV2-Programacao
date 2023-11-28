@@ -28,6 +28,7 @@ public partial class PADARIA_AV2Context : DbContext
 
     public virtual DbSet<Venda> Venda { get; set; }
     public virtual DbSet<VwEstoque> VwEstoque {get; set; }
+    public IEnumerable<object> ItemVenda { get; set; }
 
     protected override void OnModelCreating(ModelBuilder modelBuilder)
     {

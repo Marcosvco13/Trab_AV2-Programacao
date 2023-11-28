@@ -46,7 +46,6 @@
             </div>
 
 
-            <!-- Tabela para exibir os produtos selecionados -->
             <div class="row mt-4">
                 <div class="col-md-6">
                     <h4>Carrinho</h4>
@@ -55,11 +54,10 @@
                             <tr>
                                 <th>Nome</th>
                                 <th>Quantidade</th>
-                                <!-- Adicione outras colunas conforme necessário -->
                             </tr>
                         </thead>
                         <tbody id="tabelaProdutosSelecionados">
-                            <!-- Aqui serão listados os produtos selecionados -->
+
                         </tbody>
                     </table>
                 </div>
@@ -86,8 +84,8 @@
     <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
     <script>
         $(document).ready(function () {
-            var nomeProdutoSelecionado = ''; // Variável para armazenar o nome do produto selecionado
-            var idProdutoSelecionado = ''; // Variável para armazenar o ID do produto selecionado
+            var nomeProdutoSelecionado = '';
+            var idProdutoSelecionado = '';
 
             // Captura a mudança na seleção do produto
             $('#cboProduto').change(function () {
@@ -102,7 +100,6 @@
                         '<tr>' +
                         '<td>' + nomeProdutoSelecionado + '</td>' +
                         '<td><input type="number" class="form-control quantidade" value="1" /></td>' +
-                        // Adicione outras colunas conforme necessário
                         '</tr>'
                     );
                 }
@@ -123,14 +120,8 @@
                         Quantidade: quantidade
                     });
                 });
-
-                // Faça algo com a lista de produtos selecionados (por exemplo, enviar para o servidor)
-                console.log(produtosSelecionados);
             });
         });
-
-
-
 
         $('form').submit(function (event) {
             event.preventDefault();

@@ -1,5 +1,6 @@
 ﻿using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.Rendering;
+using System.Security.Claims;
 using Trab_AV2.Model.Models;
 using Trab_AV2.Model.Services;
 using Trab_AV2.VM;
@@ -37,19 +38,64 @@ namespace Trab_AV2.Controllers
             return View();
         }
 
-        [HttpPost]
-        public async Task<IActionResult> Create(Venda venda)
+        public async Task<IActionResult> Manter(VendaVM vendaVM)
         {
-            if (ModelState.IsValid)
+            try
             {
-                var vendaEfetuada = await _ServiceVenda.oRepositoryVenda.IncluirAsync(venda);
-                return View(vendaEfetuada);
+                var venda = new Venda();
+
+                if (vendaVM.CodigoVenda > 0)
+                {
+                    // Se é uma venda existente, busca do banco de dados
+                    venda = await _ServiceVenda.oRepositoryVenda.SelecionarPkAsync(vendaVM.CodigoVenda);
+                }
+
+                // Preenche os detalhes da venda com base nos dados recebidos da View
+                venda.IdUser = User.FindFirstValue(ClaimTypes.NameIdentifier);
+                venda.IdProduto = (int)vendaVM.CodigoProduto;
+                venda.DataVenda = vendaVM.DataDaVenda;
+                venda.ValorVenda = vendaVM.ValorDaVenda;
+
+                // Lista para armazenar os itens da venda
+                var listaItens = new List<ItemVenda>();
+
+                foreach (var item in vendaVM.ListaProdutos)
+                {
+                    listaItens.Add(new ItemVenda
+                    {
+                        ProdutoId = item.CodigoProduto, // Ajuste conforme sua lógica de associação de produtos com itens de venda
+                        ValorVenda = item.ValorVenda
+                        // Aqui você pode preencher outras propriedades do item da venda, se necessário
+                    });
+                }
+
+                // Define os itens da venda
+                venda.ItemVenda = listaItens;
+
+                if (venda.Id > 0)
+                {
+                    // Se a venda já existe, faz a alteração (atualização) no banco de dados
+                    await _ServiceVenda.oRepositoryVenda.AlterarAsync(venda, venda.ItemVenda.ToList());
+                }
+                else
+                {
+                    // Caso contrário, é uma nova venda e deve ser incluída no banco de dados
+                    await _ServiceVenda.oRepositoryVenda.IncluirAsync(venda);
+                }
+
+                vendaVM.CodigoVenda = venda.Id;
+
+                CarregarViewBag();
+                return View();
             }
-            else
+            catch (Exception ex)
             {
-                return View(venda);
+                // Lida com exceções, se necessário
+                throw;
             }
         }
+
+
 
         [HttpGet]
         public async Task<IActionResult> Edit(int id)

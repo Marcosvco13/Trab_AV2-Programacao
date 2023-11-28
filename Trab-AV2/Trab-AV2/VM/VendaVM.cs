@@ -14,6 +14,7 @@ namespace Trab_AV2.VM
 
         public decimal? ValorDaVenda { get; set; }
 
+        public List<ItemVenda> ListaProdutos { get; set; }
         public VendaVM()
         {
 
