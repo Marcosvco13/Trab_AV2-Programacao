@@ -16,5 +16,10 @@ namespace Trab_AV2.Model.Repositories
         {
 
         }
+
+        public Task AtualizarItensAsync(List<ItensVenda> itensVendas)
+        {
+            throw new NotImplementedException();
+        }
     }
 }

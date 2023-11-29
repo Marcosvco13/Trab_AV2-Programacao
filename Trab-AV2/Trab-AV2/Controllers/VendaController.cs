@@ -1,4 +1,5 @@
 ﻿using System.Security.Claims;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.Rendering;
 using Trab_AV2.Model.Models;
@@ -7,6 +8,8 @@ using Trab_AV2.VM;
 
 namespace Trab_AV2.Controllers
 {
+
+    [Authorize]
     public class VendaController : Controller
     {
         private ServiceVenda _ServiceVenda;
@@ -65,11 +68,9 @@ namespace Trab_AV2.Controllers
                 }
                 venda.ItensVenda = listaItens;
 
-
-                //await _ServiceVenda.oRepositoryVenda.IncluirAsync(venda);
                 if (venda.Id > 0)
                 {
-                    //await _ServiceVenda.oRepositoryVenda.AlterarAsync(venda, venda.ItensVenda.ToList());
+                    await _ServiceVenda.oRepositoryVenda.AlterarAsync(venda, venda.ItensVenda.ToList());
                 }
                 else
                 {

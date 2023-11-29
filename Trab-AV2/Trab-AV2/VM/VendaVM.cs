@@ -1,4 +1,5 @@
-﻿using Trab_AV2.Model.Models;
+﻿using Microsoft.AspNetCore.Razor.Language;
+using Trab_AV2.Model.Models;
 using Trab_AV2.Models;
 
 namespace Trab_AV2.VM
@@ -9,6 +10,10 @@ namespace Trab_AV2.VM
         public string NomeCliente { get; set; }
         public string? CodigoCliente { get; set; }
         public DateTime? DataDaVenda { get; set; }
+        public int CodigoProduto { get; set; }
+        public decimal Quantidade { get; set; }
+        public decimal ValorItem { get; set; }
+
 
         public List<ItensVendaProduto> ListaProdutos { get; set; }
 
@@ -54,8 +59,9 @@ namespace Trab_AV2.VM
                 listaRetorno.Add(vendaVm);
             }
             return listaRetorno;
-
         }
+
+
     }
 }
 
