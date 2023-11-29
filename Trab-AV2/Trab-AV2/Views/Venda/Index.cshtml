@@ -7,7 +7,7 @@
 <h1>Index</h1>
 
 <p>
-    <a asp-action="Create">Create New</a>
+    <a asp-action="Manter">Create New</a>
 </p>
 <table class="table">
     <thead>
@@ -43,9 +43,7 @@
                 @Html.DisplayFor(modelItem => item.DataDaVenda)
             </td>
             <td>
-                @Html.ActionLink("Manter", "Manter", new { id=item.CodigoVenda}) |
-                @Html.ActionLink("Details", "Details", new { /* id=item.PrimaryKey */ }) |
-                @Html.ActionLink("Delete", "Delete", new { /* id=item.PrimaryKey */ })
+                @Html.ActionLink("Manter", "Manter", new { codVenda = item.CodigoVenda}) |
             </td>
         </tr>
 }

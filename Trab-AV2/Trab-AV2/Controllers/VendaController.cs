@@ -29,7 +29,6 @@ namespace Trab_AV2.Controllers
             ViewBag.listaProdutos = _ServiceVenda.oRepositoryVwEstoque.SelecionarTodos();
         }
 
-        [HttpGet]
         public IActionResult Manter(int codVenda = 0)
         {
             CarregarViewBag();
