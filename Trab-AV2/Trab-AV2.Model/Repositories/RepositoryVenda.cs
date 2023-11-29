@@ -31,9 +31,6 @@ namespace Trab_AV2.Model.Repositories
                 }
                 _context.AddRange(itens);
             }
-
-            
-          
             await _context.SaveChangesAsync();
         }
     }

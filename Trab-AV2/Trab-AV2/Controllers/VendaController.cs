@@ -38,6 +38,11 @@ namespace Trab_AV2.Controllers
             }
             return View();
         }
+        public IActionResult Detalhe(int codVenda)
+        {
+            var retorno = VendaVM.SelecionarVenda(codVenda);
+            return View(retorno);
+        }
 
         [HttpPost]
         public async Task<IActionResult> Manter(VendaVM vendaVM)
