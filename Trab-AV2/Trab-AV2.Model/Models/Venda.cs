@@ -9,13 +9,9 @@ public partial class Venda
 {
     public int Id { get; set; }
 
-    public int IdProduto { get; set; }
-
     public string IdUser { get; set; }
 
     public DateTime? DataVenda { get; set; }
 
-    public decimal? ValorVenda { get; set; }
-
-    public int? Qtd { get; set; }
+    public virtual ICollection<ItensVenda> ItensVenda { get; set; } = new List<ItensVenda>();
 }

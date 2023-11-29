@@ -1,4 +1,5 @@
-﻿using Microsoft.AspNetCore.Mvc;
+﻿using Microsoft.AspNetCore.Authorization;
+using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.Rendering;
 using Trab_AV2.Model.Models;
 using Trab_AV2.Model.Services;
@@ -6,6 +7,7 @@ using Trab_AV2.VM;
 
 namespace Trab_AV2.Controllers
 {
+    [Authorize]
     public class ProdutoController : Controller
     {
         private ServiceProduto _ServiceProduto;

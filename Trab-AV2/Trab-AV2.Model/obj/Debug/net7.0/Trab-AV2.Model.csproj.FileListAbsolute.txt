@@ -25,3 +25,15 @@ C:\Users\danie\Documents\Faculdade\Projento Integrador\Projeto_Integrador_2\sist
 C:\Users\danie\Documents\Faculdade\Projento Integrador\Projeto_Integrador_2\sistema-padaria\Trab-AV2\Trab-AV2.Model\bin\Debug\net7.0\Trab-AV2.Model.pdb
 C:\Users\danie\Documents\Faculdade\Projento Integrador\Projeto_Integrador_2\sistema-padaria\Trab-AV2\Trab-AV2.Model\obj\Debug\net7.0\Trab-AV2.Model.genruntimeconfig.cache
 C:\Users\danie\Documents\Faculdade\Projento Integrador\Projeto_Integrador_2\sistema-padaria\Trab-AV2\Trab-AV2.Model\obj\Debug\net7.0\ref\Trab-AV2.Model.dll
+C:\Users\danie\Documents\Faculdade\Projento Integrador\Projeto_Integrador_2\Trab_AV2-Programacao\Trab-AV2\Trab-AV2.Model\bin\Debug\net7.0\Trab-AV2.Model.deps.json
+C:\Users\danie\Documents\Faculdade\Projento Integrador\Projeto_Integrador_2\Trab_AV2-Programacao\Trab-AV2\Trab-AV2.Model\bin\Debug\net7.0\Trab-AV2.Model.dll
+C:\Users\danie\Documents\Faculdade\Projento Integrador\Projeto_Integrador_2\Trab_AV2-Programacao\Trab-AV2\Trab-AV2.Model\bin\Debug\net7.0\Trab-AV2.Model.pdb
+C:\Users\danie\Documents\Faculdade\Projento Integrador\Projeto_Integrador_2\Trab_AV2-Programacao\Trab-AV2\Trab-AV2.Model\obj\Debug\net7.0\Trab-AV2.Model.csproj.AssemblyReference.cache
+C:\Users\danie\Documents\Faculdade\Projento Integrador\Projeto_Integrador_2\Trab_AV2-Programacao\Trab-AV2\Trab-AV2.Model\obj\Debug\net7.0\Trab-AV2.Model.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\danie\Documents\Faculdade\Projento Integrador\Projeto_Integrador_2\Trab_AV2-Programacao\Trab-AV2\Trab-AV2.Model\obj\Debug\net7.0\Trab-AV2.Model.AssemblyInfoInputs.cache
+C:\Users\danie\Documents\Faculdade\Projento Integrador\Projeto_Integrador_2\Trab_AV2-Programacao\Trab-AV2\Trab-AV2.Model\obj\Debug\net7.0\Trab-AV2.Model.AssemblyInfo.cs
+C:\Users\danie\Documents\Faculdade\Projento Integrador\Projeto_Integrador_2\Trab_AV2-Programacao\Trab-AV2\Trab-AV2.Model\obj\Debug\net7.0\Trab-AV2.Model.csproj.CoreCompileInputs.cache
+C:\Users\danie\Documents\Faculdade\Projento Integrador\Projeto_Integrador_2\Trab_AV2-Programacao\Trab-AV2\Trab-AV2.Model\obj\Debug\net7.0\Trab-AV2.Model.dll
+C:\Users\danie\Documents\Faculdade\Projento Integrador\Projeto_Integrador_2\Trab_AV2-Programacao\Trab-AV2\Trab-AV2.Model\obj\Debug\net7.0\refint\Trab-AV2.Model.dll
+C:\Users\danie\Documents\Faculdade\Projento Integrador\Projeto_Integrador_2\Trab_AV2-Programacao\Trab-AV2\Trab-AV2.Model\obj\Debug\net7.0\Trab-AV2.Model.pdb
+C:\Users\danie\Documents\Faculdade\Projento Integrador\Projeto_Integrador_2\Trab_AV2-Programacao\Trab-AV2\Trab-AV2.Model\obj\Debug\net7.0\ref\Trab-AV2.Model.dll

@@ -23,11 +23,15 @@ public partial class PADARIA_AV2Context : DbContext
 
     public virtual DbSet<AspNetUser> AspNetUsers { get; set; }
 
+    public virtual DbSet<ItensVenda> ItensVenda { get; set; }
+
     public virtual DbSet<Produto> Produtos { get; set; }
 
     public virtual DbSet<SimNao> SimNaos { get; set; }
 
     public virtual DbSet<Venda> Venda { get; set; }
+
+    public virtual DbSet<VwEstoque> VwEstoques { get; set; }
 
     protected override void OnModelCreating(ModelBuilder modelBuilder)
     {
@@ -43,6 +47,23 @@ public partial class PADARIA_AV2Context : DbContext
             entity.Property(e => e.NormalizedEmail).HasMaxLength(256);
             entity.Property(e => e.NormalizedUserName).HasMaxLength(256);
             entity.Property(e => e.UserName).HasMaxLength(256);
+        });
+
+        modelBuilder.Entity<ItensVenda>(entity =>
+        {
+            entity.HasKey(e => e.ItvCodigo);
+
+            entity.Property(e => e.ItvQuantidade).HasColumnType("decimal(18, 2)");
+            entity.Property(e => e.ItvValorItem).HasColumnType("decimal(18, 2)");
+
+            entity.HasOne(d => d.ItvCodigoProdutoNavigation).WithMany(p => p.ItensVenda)
+                .HasForeignKey(d => d.ItvCodigoProduto)
+                .OnDelete(DeleteBehavior.ClientSetNull)
+                .HasConstraintName("FK_ItensVenda_PRODUTOS");
+
+            entity.HasOne(d => d.ItvCodigoVendaNavigation).WithMany(p => p.ItensVenda)
+                .HasForeignKey(d => d.ItvCodigoVenda)
+                .HasConstraintName("FK_ItensVenda_VENDA");
         });
 
         modelBuilder.Entity<Produto>(entity =>
@@ -68,11 +89,16 @@ public partial class PADARIA_AV2Context : DbContext
             entity.Property(e => e.Valor)
                 .HasColumnType("decimal(18, 0)")
                 .HasColumnName("VALOR");
+
+            entity.HasOne(d => d.DispNavigation).WithMany(p => p.Produtos)
+                .HasForeignKey(d => d.Disp)
+                .OnDelete(DeleteBehavior.ClientSetNull)
+                .HasConstraintName("FK_PRODUTOS_SIM_NAO");
         });
 
         modelBuilder.Entity<SimNao>(entity =>
         {
-            entity.HasKey(e => e.Id).HasName("PK__SIM_NAO__3214EC27D10DE8D7");
+            entity.HasKey(e => e.Id).HasName("PK__SIM_NAO__3214EC278C446DF7");
 
             entity.ToTable("SIM_NAO");
 
@@ -92,15 +118,34 @@ public partial class PADARIA_AV2Context : DbContext
             entity.Property(e => e.DataVenda)
                 .HasColumnType("datetime")
                 .HasColumnName("DATA_VENDA");
-            entity.Property(e => e.IdProduto).HasColumnName("ID_PRODUTO");
             entity.Property(e => e.IdUser)
                 .IsRequired()
                 .HasMaxLength(450)
                 .HasColumnName("ID_USER");
-            entity.Property(e => e.Qtd).HasColumnName("QTD");
-            entity.Property(e => e.ValorVenda)
-                .HasColumnType("decimal(18, 2)")
-                .HasColumnName("VALOR_VENDA");
+        });
+
+        modelBuilder.Entity<VwEstoque>(entity =>
+        {
+            entity
+                .HasNoKey()
+                .ToView("VW_ESTOQUE");
+
+            entity.Property(e => e.Id)
+                .ValueGeneratedOnAdd()
+                .HasColumnName("ID");
+            entity.Property(e => e.NmProduto)
+                .IsRequired()
+                .HasMaxLength(100)
+                .IsUnicode(false)
+                .HasColumnName("NM_PRODUTO");
+            entity.Property(e => e.Qtd)
+                .IsRequired()
+                .HasMaxLength(10)
+                .IsUnicode(false)
+                .HasColumnName("QTD");
+            entity.Property(e => e.Valor)
+                .HasColumnType("decimal(18, 0)")
+                .HasColumnName("VALOR");
         });
 
         OnModelCreatingPartial(modelBuilder);

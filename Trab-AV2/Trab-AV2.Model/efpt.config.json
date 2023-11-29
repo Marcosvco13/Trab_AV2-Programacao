@@ -20,6 +20,10 @@
          "ObjectType": 0
       },
       {
+         "Name": "[dbo].[ItensVenda]",
+         "ObjectType": 0
+      },
+      {
          "Name": "[dbo].[PRODUTOS]",
          "ObjectType": 0
       },
@@ -30,6 +34,10 @@
       {
          "Name": "[dbo].[VENDA]",
          "ObjectType": 0
+      },
+      {
+         "Name": "[dbo].[VW_ESTOQUE]",
+         "ObjectType": 3
       }
    ],
    "UiHint": "notebook-marcos\\sqlexpress.PADARIA_AV2.dbo",

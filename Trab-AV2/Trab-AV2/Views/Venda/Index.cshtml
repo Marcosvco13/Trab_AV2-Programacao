@@ -1,0 +1,53 @@
+﻿@model IEnumerable<Trab_AV2.VM.VendaVM>
+
+@{
+    ViewData["Title"] = "Index";
+}
+
+<h1>Index</h1>
+
+<p>
+    <a asp-action="Manter">Create New</a>
+</p>
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.CodigoVenda)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.NomeCliente)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.CodigoCliente)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.DataDaVenda)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model) {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.CodigoVenda)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.NomeCliente)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.CodigoCliente)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.DataDaVenda)
+            </td>
+            <td>
+                @Html.ActionLink("Manter", "Manter", new { codVenda = item.CodigoVenda}) |
+                @Html.ActionLink("Detalhes", "Detalhe", new { codVenda = item.CodigoVenda }) |
+                @Html.ActionLink("Deletar", "Deletar", new { codVenda = item.CodigoVenda }) |
+            </td>
+        </tr>
+}
+    </tbody>
+</table>
