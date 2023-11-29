@@ -20,6 +20,7 @@ public partial class PADARIA_AV2Context : DbContext
     protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
 
 => optionsBuilder.UseSqlServer("data source=NOTEBOOK-MARCOS\\SQLEXPRESS;Initial Catalog=PADARIA_AV2;User Id=sa;Password=2000@edu.sau;TrustserverCertificate=True");
+
     public virtual DbSet<AspNetUser> AspNetUsers { get; set; }
 
     public virtual DbSet<ItensVenda> ItensVenda { get; set; }
@@ -62,7 +63,6 @@ public partial class PADARIA_AV2Context : DbContext
 
             entity.HasOne(d => d.ItvCodigoVendaNavigation).WithMany(p => p.ItensVenda)
                 .HasForeignKey(d => d.ItvCodigoVenda)
-                .OnDelete(DeleteBehavior.ClientSetNull)
                 .HasConstraintName("FK_ItensVenda_VENDA");
         });
 

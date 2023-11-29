@@ -28,6 +28,32 @@ namespace Trab_AV2.Controllers
             ViewData["CodigoProduto"] =  new SelectList(_ServiceVenda.oRepositoryProduto.SelecionarTodos(), "Id", "NmProduto");
             ViewBag.listaProdutos = _ServiceVenda.oRepositoryVwEstoque.SelecionarTodos();
         }
+        public IActionResult Detalhe(int codVenda)
+        {
+            var retorno = VendaVM.SelecionarVenda(codVenda);
+            return View(retorno);
+        }
+
+        public IActionResult Deletar(int codVenda)
+        {
+            var retorno = VendaVM.SelecionarVenda(codVenda);
+            return View(retorno);
+        }
+
+        [HttpPost]
+        public IActionResult Deletar(VendaVM vendaVM)
+        {
+            try
+            {
+                _ServiceVenda.oRepositoryVenda.Excluir(vendaVM.CodigoVenda);
+                return RedirectToAction("Index");
+            }
+            catch (Exception ex)
+            {
+                ViewData["MensagemErro"] = ex.Message.ToString();
+                throw;
+            }
+        }
 
         public IActionResult Manter(int codVenda = 0)
         {
@@ -37,11 +63,6 @@ namespace Trab_AV2.Controllers
                 return View(VendaVM.SelecionarVenda(codVenda));
             }
             return View();
-        }
-        public IActionResult Detalhe(int codVenda)
-        {
-            var retorno = VendaVM.SelecionarVenda(codVenda);
-            return View(retorno);
         }
 
         [HttpPost]

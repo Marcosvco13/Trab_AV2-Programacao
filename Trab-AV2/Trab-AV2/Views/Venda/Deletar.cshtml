@@ -1,0 +1,96 @@
+﻿@model Trab_AV2.VM.VendaVM
+
+@{
+    ViewData["Title"] = "Delete";
+}
+
+<h1>Deletar Venda</h1>
+
+<form asp-action="Deletar">
+    <div>
+        @{
+            if (ViewData["MensagemErro"] != null)
+            {
+                <div class="alert-danger">
+                    @ViewData["MensagemErro"]
+                </div>
+            }
+        }
+        <hr />
+        <dl class="row">
+
+            <input type="hidden" asp-for="CodigoVenda" />
+
+            <dt class="col-sm-2">
+                @Html.DisplayNameFor(model => model.CodigoVenda)
+            </dt>
+            <dd class="col-sm-10">
+                @Html.DisplayFor(model => model.CodigoVenda)
+            </dd>
+            <dt class="col-sm-2">
+                @Html.DisplayNameFor(model => model.NomeCliente)
+            </dt>
+            <dd class="col-sm-10">
+                @Html.DisplayFor(model => model.NomeCliente)
+            </dd>
+            <dt class="col-sm-2">
+                @Html.DisplayNameFor(model => model.DataDaVenda)
+            </dt>
+            <dd class="col-sm-10">
+                @Html.DisplayFor(model => model.DataDaVenda)
+            </dd>
+        </dl>
+        <div>
+            <div>
+                <h2>Produtos</h2>
+                <div>
+                    <table class="table" id="tabelaItens">
+                        <thead>
+                            <tr>
+                                <th>
+                                    Produto
+                                </th>
+                                <th>
+                                    Quantidade
+                                </th>
+                                <th>
+                                    Valor Venda
+                                </th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            @{
+                                if (Model != null && Model.ListaProdutos != null)
+                                {
+                                    for (int i = 0; i <= Model.ListaProdutos.Count - 1; i++)
+                                    {
+                                        <tr>
+                                            <td>
+                                                @Model.ListaProdutos[i].NomeProduto
+                                                <input type="hidden" name="ListaProdutos[@i].Produto" value="@Model.ListaProdutos[i].NomeProduto">
+                                            </td>
+                                            <td>
+                                                @Model.ListaProdutos[i].Quantidade
+                                                <input type="hidden" value="@Model.ListaProdutos[i].Quantidade" name="ListaProdutos[@i].Quantidade">
+                                            </td>
+                                            <td>
+
+                                                @Model.ListaProdutos[i].ValorVenda
+                                                <input type="hidden" value="@Model.ListaProdutos[i].ValorVenda" name="Model.ListaProdutos[@i].ValorVenda">
+                                            </td>
+                                        </tr>
+                                    }
+                                }
+                            }
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+
+        <input type="submit" value="Deletar" class="btn btn-danger" /> |
+
+        <a asp-action="Index">Retornar</a>
+
+    </div>
+</form>
